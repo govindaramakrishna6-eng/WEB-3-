@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web3 Field Guide</title>
+  <meta name="description" content="A light, hands-on field guide to Web3: blockchains, decentralization, crypto, smart contracts, NFTs and DAOs, explained with real examples you can click, break and fix." />
+  <meta name="theme-color" content="#FAF6EE" />
+  <meta property="og:title" content="Web3 Field Guide — the internet, now with receipts" />
+  <meta property="og:description" content="Learn Web3 by breaking a blockchain, knocking out servers and running a smart contract. No jargon." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="#top" aria-label="Web3 Field Guide, back to top">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="9" width="12" height="12" rx="3"/><rect x="18" y="9" width="12" height="12" rx="3"/><path d="M14 15h4"/></svg>
+        <span>Field Guide<small>to Web3</small></span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+        <span class="sr-only">Menu</span><span class="bars" aria-hidden="true"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#shift">The shift</a></li>
+        <li><a href="#blockchain">Blockchain</a></li>
+        <li><a href="#decentralization">Decentralization</a></li>
+        <li><a href="#concepts">Concepts</a></li>
+        <li><a href="#contract">Smart contracts</a></li>
+        <li><a href="#myths">Myths</a></li>
+        <li><a href="#wallet" class="nav-cta">Connect wallet</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot"></span> A field guide for the curious, not the crypto-bros</p>
+        <h1 id="hero-title">The internet, now with <em class="scribble">receipts</em>.</h1>
+        <p class="lede">
+          Web3 is a way of building apps where no single company keeps the master copy.
+          Records live on public blockchains, anyone can check them, and you hold the keys to your own stuff.
+          This page skips the hype and shows how it actually works &mdash; with things you can
+          <strong>click, break and fix</strong>.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#shift">Start the tour
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#blockchain">Break a blockchain</a>
+        </div>
+        <ul class="hero-meta" aria-label="What's inside">
+          <li>6 hands-on demos</li>
+          <li>Real stories, real dates</li>
+          <li>~10 min read</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual">
+        <!-- Live Ethereum ticker: real data pulled from a public node -->
+        <article class="live-card sticker" aria-live="polite">
+          <header>
+            <span class="pulse" id="live-pulse" aria-hidden="true"></span>
+            <span class="mono">Ethereum mainnet &middot; <span id="live-status">connecting&hellip;</span></span>
+          </header>
+          <p class="live-label">Latest block</p>
+          <p class="live-number mono" id="live-block">#&mdash;&mdash;&mdash;&mdash;</p>
+          <dl class="live-stats">
+            <div><dt>Transactions</dt><dd id="live-txs" class="mono">&mdash;</dd></div>
+            <div><dt>Sealed</dt><dd id="live-age" class="mono">&mdash;</dd></div>
+            <div><dt>Base fee</dt><dd id="live-fee" class="mono">&mdash;</dd></div>
+          </dl>
+          <p class="live-foot">This is real. A new block lands roughly every 12 seconds, and nobody can edit the old ones.</p>
+        </article>
+
+        <div class="block-stack" aria-hidden="true">
+          <div class="mini-block b1"><span class="mono">#0</span><i>genesis</i></div>
+          <div class="mini-block b2"><span class="mono">#1</span><i>prev: 000a3f…</i></div>
+          <div class="mini-block b3"><span class="mono">#2</span><i>prev: 0007c1…</i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STAT STRIP ============ -->
+    <section class="stats" aria-label="Quick facts">
+      <div class="container stats-grid">
+        <div class="stat"><span class="stat-num" data-count="12" data-suffix="s">12s</span><span>between Ethereum blocks</span></div>
+        <div class="stat"><span class="stat-num" data-count="21" data-suffix="M">21M</span><span>bitcoins will ever exist. Hard-coded.</span></div>
+        <div class="stat"><span class="stat-num" data-count="2009">2009</span><span>year the first Bitcoin block was mined</span></div>
+        <div class="stat"><span class="stat-num" data-count="99.95" data-decimals="2" data-suffix="%">99.95%</span><span>less energy used by Ethereum after &ldquo;the Merge&rdquo;</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 01 THE SHIFT ============ -->
+    <section class="section container" id="shift" aria-labelledby="shift-title">
+      <header class="section-head reveal">
+        <p class="chapter"><span>01</span> The shift</p>
+        <h2 id="shift-title">Read. Write. <em>Own.</em></h2>
+        <p class="section-intro">The web has had three moods. Tap through them &mdash; the difference is all about <strong>who holds the keys</strong>.</p>
+      </header>
+
+      <div class="era reveal">
+        <div class="era-tabs" role="tablist" aria-label="Eras of the web">
+          <button role="tab" id="tab-web1" aria-controls="panel-web1" aria-selected="false" tabindex="-1" data-era="web1">
+            <span class="mono">Web1</span><small>1991&ndash;2004</small>
+          </button>
+          <button role="tab" id="tab-web2" aria-controls="panel-web2" aria-selected="false" tabindex="-1" data-era="web2">
+            <span class="mono">Web2</span><small>2004&ndash;now</small>
+          </button>
+          <button role="tab" id="tab-web3" aria-controls="panel-web3" aria-selected="true" data-era="web3">
+            <span class="mono">Web3</span><small>2015&ndash;now</small>
+          </button>
+        </div>
+
+        <div class="era-panel" role="tabpanel" id="panel-web1" aria-labelledby="tab-web1" hidden>
+          <div class="era-verb"><span>Read</span></div>
+          <div class="era-body">
+            <h3>Pages you could only look at.</h3>
+            <p>Websites were digital brochures. A few people published, everybody else browsed. Think GeoCities home pages, spinning &ldquo;under construction&rdquo; GIFs and visitor counters.</p>
+            <ul class="era-facts">
+              <li><b>You were:</b> a reader.</li>
+              <li><b>Who owned it:</b> whoever ran the server.</li>
+              <li><b>Real example:</b> the very first website, info.cern.ch (1991), is still online.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="era-panel" role="tabpanel" id="panel-web2" aria-labelledby="tab-web2" hidden>
+          <div class="era-verb"><span>Read + Write</span></div>
+          <div class="era-body">
+            <h3>You make the content. They own the account.</h3>
+            <p>Social media, YouTube, marketplaces: anyone can post. But your followers, posts and purchases live on a company&rsquo;s servers, under its rules. If it bans you, changes the algorithm or shuts down, it&rsquo;s gone.</p>
+            <ul class="era-facts">
+              <li><b>You were:</b> a creator &mdash; and the product.</li>
+              <li><b>Who owned it:</b> the platform.</li>
+              <li><b>Real example:</b> when Google shut down Google+ in 2019, users had to download what they could before it vanished.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="era-panel" role="tabpanel" id="panel-web3" aria-labelledby="tab-web3">
+          <div class="era-verb"><span>Read + Write + Own</span></div>
+          <div class="era-body">
+            <h3>Your stuff lives on a public ledger, tied to your key.</h3>
+            <p>Balances, names and digital items are recorded on a blockchain that no single company controls. Apps become front doors to shared data instead of walled gardens. Switch apps, keep your stuff.</p>
+            <ul class="era-facts">
+              <li><b>You are:</b> a participant with a wallet.</li>
+              <li><b>Who owns it:</b> whoever holds the private key.</li>
+              <li><b>Real example:</b> an ENS name like <span class="mono">vitalik.eth</span> works across hundreds of wallets and apps &mdash; no single one can take it away.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 BLOCKCHAIN ============ -->
+    <section class="section section-tint" id="blockchain" aria-labelledby="bc-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="chapter"><span>02</span> Blockchain</p>
+          <h2 id="bc-title">A notebook where every page <em>locks</em> the one before it.</h2>
+          <p class="section-intro">
+            A blockchain is a list of records (blocks). Each block contains a <b>fingerprint</b> (hash) of the previous one.
+            Change one old record and every fingerprint after it stops matching &mdash; so tampering is instantly obvious.
+          </p>
+        </header>
+
+        <div class="split reveal">
+          <div class="card fingerprint">
+            <h3><span class="step">A</span> First, meet the fingerprint</h3>
+            <p>A <b>hash</b> turns any text into a fixed-length code. Change a single letter and the whole thing scrambles. Try it:</p>
+            <label for="hash-input" class="label">Type anything</label>
+            <input id="hash-input" class="input" type="text" value="Alice pays Bob 5" autocomplete="off" spellcheck="false" />
+            <p class="label">SHA-256 fingerprint</p>
+            <output id="hash-output" class="hash-out mono" for="hash-input"></output>
+            <p class="hint">Try changing <b>5</b> to <b>6</b>. Same function Bitcoin uses.</p>
+          </div>
+          <aside class="card note-card">
+            <p class="note-tag">Real story</p>
+            <h3>A newspaper headline, sealed forever</h3>
+            <p>On <b>3 January 2009</b>, the anonymous creator of Bitcoin, Satoshi Nakamoto, mined the very first block. Hidden inside it is a line of text:</p>
+            <blockquote class="mono">&ldquo;The Times 03/Jan/2009 Chancellor on brink of second bailout for banks&rdquo;</blockquote>
+            <p>It&rsquo;s both a timestamp and a statement &mdash; and because every later block chains back to it, it can never be edited.</p>
+          </aside>
+        </div>
+
+        <div class="chain-wrap reveal">
+          <div class="chain-head">
+            <h3><span class="step">B</span> Now break the chain</h3>
+            <p>Each block below is valid when its hash starts with <span class="mono tag-ok">000</span> and it points to the previous hash.
+              <b>Edit any block&rsquo;s data</b> and watch the damage spread. Then hit <b>Mine</b> to repair it by finding a new nonce &mdash; that&rsquo;s the &ldquo;work&rdquo; in proof-of-work.</p>
+            <button class="btn btn-small btn-ghost" id="chain-reset" type="button">Reset chain</button>
+          </div>
+          <ol class="chain" id="chain" aria-live="polite"></ol>
+          <p class="chain-verdict" id="chain-verdict" role="status"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 DECENTRALIZATION ============ -->
+    <section class="section container" id="decentralization" aria-labelledby="dc-title">
+      <header class="section-head reveal">
+        <p class="chapter"><span>03</span> Decentralization</p>
+        <h2 id="dc-title">No main server. <em>No single off switch.</em></h2>
+        <p class="section-intro">In a normal app, one company&rsquo;s servers hold the truth. In a blockchain, thousands of independent computers (nodes) each keep a full copy and agree on updates. Pick a model, then start knocking computers offline.</p>
+      </header>
+
+      <div class="net reveal">
+        <div class="net-controls">
+          <div class="segmented" role="radiogroup" aria-label="Network model">
+            <button type="button" role="radio" aria-checked="true" data-mode="central">Central server</button>
+            <button type="button" role="radio" aria-checked="false" data-mode="p2p">Peer-to-peer</button>
+          </div>
+          <p class="hint">Click (or tap) a computer to take it offline. Click again to bring it back.</p>
+          <div class="net-status" id="net-status" role="status"></div>
+          <button type="button" class="btn btn-small btn-ghost" id="net-reset">Restore all</button>
+          <div class="note-card mini">
+            <p class="note-tag">Real story</p>
+            <p>On <b>4 October 2021</b>, a bad configuration change took Facebook, Instagram and WhatsApp offline for about <b>six hours</b> &mdash; billions of people, one company, one mistake. Bitcoin&rsquo;s ledger, run by independent nodes around the world, has kept adding blocks since 2009.</p>
+          </div>
+        </div>
+        <div class="net-stage">
+          <svg id="net-svg" viewBox="0 0 400 320" role="img" aria-labelledby="net-svg-title">
+            <title id="net-svg-title">Network diagram of computers that can be switched off</title>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 CONCEPTS ============ -->
+    <section class="section section-tint" id="concepts" aria-labelledby="concepts-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="chapter"><span>04</span> The vocabulary</p>
+          <h2 id="concepts-title">Six words you&rsquo;ll hear, <em>minus the jargon.</em></h2>
+          <p class="section-intro">Each one comes with a plain-English meaning, an everyday comparison, a real thing that happened, and the catch nobody mentions.</p>
+        </header>
+
+        <div class="concepts reveal">
+          <div class="concept-list" role="tablist" aria-label="Web3 concepts" aria-orientation="vertical" id="concept-list"></div>
+          <div class="concept-panel card" role="tabpanel" id="concept-panel" tabindex="0" aria-live="polite"></div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-wrap reveal">
+          <h3 class="timeline-title">How we got here, in eight moments</h3>
+          <ol class="timeline" tabindex="0" aria-label="Web3 timeline, scroll sideways">
+            <li><time>Oct 2008</time><h4>The whitepaper</h4><p>&ldquo;Satoshi Nakamoto&rdquo; publishes a 9-page PDF describing peer-to-peer electronic cash.</p></li>
+            <li><time>Jan 2009</time><h4>Block #0</h4><p>The Bitcoin network goes live with the genesis block.</p></li>
+            <li><time>May 2010</time><h4>Pizza Day</h4><p>Laszlo Hanyecz pays 10,000 BTC for two pizzas &mdash; the first well-known real-world purchase.</p></li>
+            <li><time>Jul 2015</time><h4>Ethereum launches</h4><p>A blockchain that can run programs, not just track coins. Smart contracts arrive.</p></li>
+            <li><time>Jun 2016</time><h4>The DAO hack</h4><p>A bug drains ~3.6M ETH from an early investment DAO. The community forks the chain to undo it.</p></li>
+            <li><time>Dec 2017</time><h4>CryptoKitties</h4><p>A game of breedable cartoon cats gets so popular it clogs the Ethereum network.</p></li>
+            <li><time>Mar 2021</time><h4>$69 million JPEG</h4><p>Beeple&rsquo;s NFT artwork sells at Christie&rsquo;s, putting NFTs on the evening news.</p></li>
+            <li><time>Sep 2022</time><h4>The Merge</h4><p>Ethereum switches from mining to staking, cutting its energy use by ~99.95%.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 SMART CONTRACT ============ -->
+    <section class="section container" id="contract" aria-labelledby="contract-title">
+      <header class="section-head reveal">
+        <p class="chapter"><span>05</span> Smart contracts</p>
+        <h2 id="contract-title">A vending machine that <em>nobody</em> can tamper with.</h2>
+        <p class="section-intro">In the 1990s, computer scientist Nick Szabo compared smart contracts to vending machines: put in the right amount, get your item, no shopkeeper needed. Here&rsquo;s one running step by step. <span class="badge">Simulation &middot; no real ETH</span></p>
+      </header>
+
+      <div class="vm reveal">
+        <div class="vm-machine card">
+          <h3>1. Pick a snack</h3>
+          <div class="snacks" role="radiogroup" aria-label="Snacks" id="snacks">
+            <button type="button" role="radio" aria-checked="true" data-price="0.03" data-name="Chips"><span class="snack-ico" aria-hidden="true">&#9679;</span>Chips<small class="mono">0.03 ETH</small></button>
+            <button type="button" role="radio" aria-checked="false" data-price="0.05" data-name="Cookie"><span class="snack-ico" aria-hidden="true">&#9650;</span>Cookie<small class="mono">0.05 ETH</small></button>
+            <button type="button" role="radio" aria-checked="false" data-price="0.08" data-name="Lemonade"><span class="snack-ico" aria-hidden="true">&#9632;</span>Lemonade<small class="mono">0.08 ETH</small></button>
+          </div>
+          <h3>2. Insert coins</h3>
+          <div class="coins">
+            <button type="button" class="coin" data-coin="0.01">+0.01</button>
+            <button type="button" class="coin" data-coin="0.02">+0.02</button>
+            <button type="button" class="coin" data-coin="0.05">+0.05</button>
+            <button type="button" class="btn-link" id="vm-clear">clear</button>
+          </div>
+          <p class="vm-paid">Sending: <b class="mono" id="vm-paid">0.00 ETH</b></p>
+          <button type="button" class="btn btn-primary btn-block" id="vm-buy">3. Call <span class="mono">buy()</span></button>
+          <div class="vm-tray" id="vm-tray" aria-live="polite"><span>Tray is empty</span></div>
+        </div>
+
+        <div class="vm-code card code-card">
+          <div class="code-top"><span class="mono">VendingMachine.sol</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+<pre class="code mono" id="vm-code" aria-label="Smart contract source code"><code><span class="ln" data-line="1"><span class="k">contract</span> VendingMachine {</span>
+<span class="ln" data-line="2">  <span class="k">mapping</span>(string =&gt; uint) price;</span>
+<span class="ln" data-line="3"></span>
+<span class="ln" data-line="4">  <span class="k">function</span> <span class="f">buy</span>(string snack) <span class="k">payable</span> {</span>
+<span class="ln" data-line="5">    <span class="k">require</span>(msg.value &gt;= price[snack], <span class="s">"Not enough ETH"</span>);</span>
+<span class="ln" data-line="6">    <span class="k">uint</span> change = msg.value - price[snack];</span>
+<span class="ln" data-line="7">    payable(msg.sender).<span class="f">transfer</span>(change);</span>
+<span class="ln" data-line="8">    <span class="k">emit</span> <span class="f">Dispensed</span>(msg.sender, snack);</span>
+<span class="ln" data-line="9">  }</span>
+<span class="ln" data-line="10">}</span></code></pre>
+          <div class="receipt" id="vm-receipt" aria-live="polite">
+            <p class="receipt-empty">The transaction receipt will appear here.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callouts reveal">
+        <div class="callout"><h4>Why it matters</h4><p>The rules are public code. The seller can&rsquo;t quietly raise the price after you pay, and there&rsquo;s no one to bribe or ask for a refund.</p></div>
+        <div class="callout"><h4>Real example</h4><p><b>Uniswap</b> is a set of smart contracts that swaps tokens with no company holding your money in between. It has handled well over a trillion dollars in trades.</p></div>
+        <div class="callout warn"><h4>The catch</h4><p>Code does exactly what it says &mdash; bugs included. That&rsquo;s how the 2016 DAO hack happened. &ldquo;Code is law&rdquo; cuts both ways.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ 06 MYTHS + QUIZ ============ -->
+    <section class="section section-tint" id="myths" aria-labelledby="myths-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="chapter"><span>06</span> Myth-busting</p>
+          <h2 id="myths-title">Things people get wrong. <em>Flip to check.</em></h2>
+        </header>
+
+        <div class="myths reveal" id="myths-grid">
+          <button class="flip" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="flip-front"><span class="flip-tag">Myth</span>&ldquo;Crypto is anonymous, so it&rsquo;s untraceable.&rdquo;<span class="flip-cta">Tap to flip</span></span>
+              <span class="flip-back"><span class="flip-tag">Reality</span>It&rsquo;s <b>pseudonymous</b>: every transaction is public forever. In 2022, US investigators followed the trail and recovered ~94,000 BTC stolen in the 2016 Bitfinex hack.</span>
+            </span>
+          </button>
+          <button class="flip" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="flip-front"><span class="flip-tag">Myth</span>&ldquo;If I lose my password, support can reset it.&rdquo;<span class="flip-cta">Tap to flip</span></span>
+              <span class="flip-back"><span class="flip-tag">Reality</span>There is no support desk. In 2013, James Howells threw out a hard drive holding the keys to ~8,000 BTC. It&rsquo;s been in a Welsh landfill ever since.</span>
+            </span>
+          </button>
+          <button class="flip" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="flip-front"><span class="flip-tag">Myth</span>&ldquo;Buying an NFT means I own the artwork&rsquo;s copyright.&rdquo;<span class="flip-cta">Tap to flip</span></span>
+              <span class="flip-back"><span class="flip-tag">Reality</span>Usually you own a token that <b>points to</b> the file &mdash; not the copyright. Rights depend on the project&rsquo;s license, so read it.</span>
+            </span>
+          </button>
+          <button class="flip" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="flip-front"><span class="flip-tag">Myth</span>&ldquo;Blockchain and Bitcoin are the same thing.&rdquo;<span class="flip-cta">Tap to flip</span></span>
+              <span class="flip-back"><span class="flip-tag">Reality</span>Bitcoin is <b>one app</b> built on a blockchain. The same idea powers Ethereum, name systems, games, supply-chain tracking and more.</span>
+            </span>
+          </button>
+          <button class="flip" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="flip-front"><span class="flip-tag">Myth</span>&ldquo;All blockchains burn huge amounts of energy.&rdquo;<span class="flip-cta">Tap to flip</span></span>
+              <span class="flip-back"><span class="flip-tag">Reality</span>Proof-of-work (Bitcoin) does. Proof-of-stake chains don&rsquo;t mine at all &mdash; Ethereum cut its energy use by ~99.95% when it switched in 2022.</span>
+            </span>
+          </button>
+          <button class="flip" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="flip-front"><span class="flip-tag">Myth</span>&ldquo;Web3 is only about money and speculation.&rdquo;<span class="flip-cta">Tap to flip</span></span>
+              <span class="flip-back"><span class="flip-tag">Reality</span>Money is the loudest use, not the only one: portable usernames (ENS), community-run funds (DAOs), and proof that a document existed at a given time.</span>
+            </span>
+          </button>
+        </div>
+
+        <!-- Quiz -->
+        <div class="quiz card reveal" id="quiz">
+          <div class="quiz-head">
+            <h3>Pocket quiz</h3>
+            <p class="mono quiz-count" id="quiz-count">1 / 5</p>
+          </div>
+          <div class="quiz-bar" aria-hidden="true"><span id="quiz-bar"></span></div>
+          <div id="quiz-body" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07 WALLET ============ -->
+    <section class="section container" id="wallet" aria-labelledby="wallet-title">
+      <header class="section-head reveal">
+        <p class="chapter"><span>07</span> Try it for real</p>
+        <h2 id="wallet-title">Your wallet is your <em>login</em>.</h2>
+        <p class="section-intro">In Web3 you don&rsquo;t sign up with an email and password. You connect a wallet, which holds a private key only you know. Connecting only shares your <b>public address</b> &mdash; it can&rsquo;t move your funds.</p>
+      </header>
+
+      <div class="wallet reveal">
+        <div class="wallet-card card" id="wallet-card">
+          <div class="wallet-state" id="wallet-disconnected">
+            <div class="wallet-ico" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><rect x="5" y="12" width="38" height="28" rx="6"/><path d="M5 18h30a4 4 0 0 1 4 4v0"/><circle cx="34" cy="27" r="2.5"/><path d="M11 12l20-6 3 6"/></svg>
+            </div>
+            <h3>Connect a browser wallet</h3>
+            <p id="wallet-detect" class="hint">Looking for a wallet&hellip;</p>
+            <div id="wallet-providers" class="wallet-providers"></div>
+            <button type="button" class="btn btn-primary btn-block" id="wallet-connect" hidden>Connect wallet</button>
+            <a class="btn btn-ghost btn-block" id="wallet-install" href="https://metamask.io/download/" target="_blank" rel="noopener" hidden>Get MetaMask (free)</a>
+            <a class="btn btn-ghost btn-block" id="wallet-mobile" href="#" hidden>Open this page in the MetaMask app</a>
+            <p class="wallet-error" id="wallet-error" role="alert"></p>
+          </div>
+
+          <div class="wallet-state" id="wallet-connected" hidden>
+            <div class="wallet-top">
+              <span class="avatar" id="wallet-avatar" aria-hidden="true"></span>
+              <div>
+                <p class="label">Connected as</p>
+                <p class="mono wallet-addr" id="wallet-addr"></p>
+              </div>
+              <button type="button" class="icon-btn" id="wallet-copy" aria-label="Copy address" title="Copy address">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+              </button>
+            </div>
+            <dl class="wallet-info">
+              <div><dt>Network</dt><dd id="wallet-network">&mdash;</dd></div>
+              <div><dt>Balance</dt><dd class="mono" id="wallet-balance">&mdash;</dd></div>
+              <div><dt>Wallet</dt><dd id="wallet-name">&mdash;</dd></div>
+            </dl>
+            <div class="wallet-actions">
+              <button type="button" class="btn btn-primary" id="wallet-sign">Sign a free message</button>
+              <button type="button" class="btn btn-ghost" id="wallet-sepolia">Switch to Sepolia testnet</button>
+              <button type="button" class="btn-link" id="wallet-disconnect">Disconnect</button>
+            </div>
+            <div class="signature" id="wallet-signature" hidden>
+              <p class="label">Your signature</p>
+              <p class="mono sig-out" id="wallet-sig-out"></p>
+              <p class="hint">This proves you control the address, without revealing your key or spending gas. It&rsquo;s how &ldquo;Sign in with Ethereum&rdquo; works.</p>
+            </div>
+            <p class="wallet-error" id="wallet-error-2" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="wallet-side">
+          <h3>What just happened?</h3>
+          <ol class="steps">
+            <li><b>The site asked</b> your wallet for permission to see your address.</li>
+            <li><b>You approved</b> in the wallet pop-up. The site never sees your private key.</li>
+            <li><b>The site read the blockchain</b> directly to show your balance &mdash; no account database needed.</li>
+            <li><b>Signing</b> a message proves ownership, like a digital autograph. It&rsquo;s free and doesn&rsquo;t send a transaction.</li>
+          </ol>
+          <div class="note-card safety">
+            <p class="note-tag">Stay safe</p>
+            <ul>
+              <li>Never type your 12 or 24-word recovery phrase into any website. Ever.</li>
+              <li>Read every pop-up. &ldquo;Sign&rdquo; and &ldquo;Send&rdquo; are very different buttons.</li>
+              <li>Practice on a <b>testnet</b> like Sepolia &mdash; its coins are free and worthless.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CLOSING ============ -->
+    <section class="closing container reveal" aria-labelledby="closing-title">
+      <div class="closing-card sticker">
+        <h2 id="closing-title">You now know more than most headlines.</h2>
+        <p>Web3 is still early, messy and full of both brilliant ideas and scams. The best defence is exactly what you just did: understand how it works before you put money in.</p>
+        <div class="reading">
+          <a href="https://ethereum.org/en/web3/" target="_blank" rel="noopener">ethereum.org &mdash; What is Web3?</a>
+          <a href="https://bitcoin.org/bitcoin.pdf" target="_blank" rel="noopener">The original Bitcoin whitepaper</a>
+          <a href="https://andersbrownworth.com/blockchain/" target="_blank" rel="noopener">Anders Brownworth&rsquo;s blockchain demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Web3 Field Guide &middot; built with plain HTML, CSS &amp; JavaScript.</p>
+      <p class="hint">Educational only. Nothing here is financial advice.</p>
+      <a href="#top" class="btn-link">Back to top &uarr;</a>
+    </div>
+  </footer>
+
+  <script src="js/sha256.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/live-block.js" defer></script>
+  <script src="js/chain-demo.js" defer></script>
+  <script src="js/network-demo.js" defer></script>
+  <script src="js/learn.js" defer></script>
+  <script src="js/contract-demo.js" defer></script>
+  <script src="js/wallet.js" defer></script>
+</body>
+</html>
