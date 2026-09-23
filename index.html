@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -229,7 +230,7 @@
           </div>
         </div>
         <div class="net-stage">
-          <svg id="net-svg" viewBox="0 0 400 320" role="img" aria-labelledby="net-svg-title">
+          <svg id="net-svg" viewBox="0 0 400 340" role="img" aria-labelledby="net-svg-title">
             <title id="net-svg-title">Network diagram of computers that can be switched off</title>
           </svg>
         </div>
@@ -297,16 +298,7 @@
 
         <div class="vm-code card code-card">
           <div class="code-top"><span class="mono">VendingMachine.sol</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
-<pre class="code mono" id="vm-code" aria-label="Smart contract source code"><code><span class="ln" data-line="1"><span class="k">contract</span> VendingMachine {</span>
-<span class="ln" data-line="2">  <span class="k">mapping</span>(string =&gt; uint) price;</span>
-<span class="ln" data-line="3"></span>
-<span class="ln" data-line="4">  <span class="k">function</span> <span class="f">buy</span>(string snack) <span class="k">payable</span> {</span>
-<span class="ln" data-line="5">    <span class="k">require</span>(msg.value &gt;= price[snack], <span class="s">"Not enough ETH"</span>);</span>
-<span class="ln" data-line="6">    <span class="k">uint</span> change = msg.value - price[snack];</span>
-<span class="ln" data-line="7">    payable(msg.sender).<span class="f">transfer</span>(change);</span>
-<span class="ln" data-line="8">    <span class="k">emit</span> <span class="f">Dispensed</span>(msg.sender, snack);</span>
-<span class="ln" data-line="9">  }</span>
-<span class="ln" data-line="10">}</span></code></pre>
+<pre class="code mono" id="vm-code" aria-label="Smart contract source code"><code><span class="ln" data-line="1"><span class="k">contract</span> VendingMachine {</span><span class="ln" data-line="2">  <span class="k">mapping</span>(string =&gt; uint) price;</span><span class="ln" data-line="3"></span><span class="ln" data-line="4">  <span class="k">function</span> <span class="f">buy</span>(string snack) <span class="k">payable</span> {</span><span class="ln" data-line="5">    <span class="k">require</span>(msg.value &gt;= price[snack], <span class="s">"Not enough ETH"</span>);</span><span class="ln" data-line="6">    <span class="k">uint</span> change = msg.value - price[snack];</span><span class="ln" data-line="7">    payable(msg.sender).<span class="f">transfer</span>(change);</span><span class="ln" data-line="8">    <span class="k">emit</span> <span class="f">Dispensed</span>(msg.sender, snack);</span><span class="ln" data-line="9">  }</span><span class="ln" data-line="10">}</span></code></pre>
           <div class="receipt" id="vm-receipt" aria-live="polite">
             <p class="receipt-empty">The transaction receipt will appear here.</p>
           </div>
@@ -332,37 +324,37 @@
           <button class="flip" type="button" aria-pressed="false">
             <span class="flip-inner">
               <span class="flip-front"><span class="flip-tag">Myth</span>&ldquo;Crypto is anonymous, so it&rsquo;s untraceable.&rdquo;<span class="flip-cta">Tap to flip</span></span>
-              <span class="flip-back"><span class="flip-tag">Reality</span>It&rsquo;s <b>pseudonymous</b>: every transaction is public forever. In 2022, US investigators followed the trail and recovered ~94,000 BTC stolen in the 2016 Bitfinex hack.</span>
+              <span class="flip-back"><span class="flip-tag">Reality</span><span class="flip-text">It&rsquo;s <b>pseudonymous</b>: every transaction is public forever. In 2022, US investigators followed the trail and recovered ~94,000 BTC stolen in the 2016 Bitfinex hack.</span></span>
             </span>
           </button>
           <button class="flip" type="button" aria-pressed="false">
             <span class="flip-inner">
               <span class="flip-front"><span class="flip-tag">Myth</span>&ldquo;If I lose my password, support can reset it.&rdquo;<span class="flip-cta">Tap to flip</span></span>
-              <span class="flip-back"><span class="flip-tag">Reality</span>There is no support desk. In 2013, James Howells threw out a hard drive holding the keys to ~8,000 BTC. It&rsquo;s been in a Welsh landfill ever since.</span>
+              <span class="flip-back"><span class="flip-tag">Reality</span><span class="flip-text">There is no support desk. In 2013, James Howells threw out a hard drive holding the keys to ~8,000 BTC. It&rsquo;s been in a Welsh landfill ever since.</span></span>
             </span>
           </button>
           <button class="flip" type="button" aria-pressed="false">
             <span class="flip-inner">
               <span class="flip-front"><span class="flip-tag">Myth</span>&ldquo;Buying an NFT means I own the artwork&rsquo;s copyright.&rdquo;<span class="flip-cta">Tap to flip</span></span>
-              <span class="flip-back"><span class="flip-tag">Reality</span>Usually you own a token that <b>points to</b> the file &mdash; not the copyright. Rights depend on the project&rsquo;s license, so read it.</span>
+              <span class="flip-back"><span class="flip-tag">Reality</span><span class="flip-text">Usually you own a token that <b>points to</b> the file &mdash; not the copyright. Rights depend on the project&rsquo;s license, so read it.</span></span>
             </span>
           </button>
           <button class="flip" type="button" aria-pressed="false">
             <span class="flip-inner">
               <span class="flip-front"><span class="flip-tag">Myth</span>&ldquo;Blockchain and Bitcoin are the same thing.&rdquo;<span class="flip-cta">Tap to flip</span></span>
-              <span class="flip-back"><span class="flip-tag">Reality</span>Bitcoin is <b>one app</b> built on a blockchain. The same idea powers Ethereum, name systems, games, supply-chain tracking and more.</span>
+              <span class="flip-back"><span class="flip-tag">Reality</span><span class="flip-text">Bitcoin is <b>one app</b> built on a blockchain. The same idea powers Ethereum, name systems, games, supply-chain tracking and more.</span></span>
             </span>
           </button>
           <button class="flip" type="button" aria-pressed="false">
             <span class="flip-inner">
               <span class="flip-front"><span class="flip-tag">Myth</span>&ldquo;All blockchains burn huge amounts of energy.&rdquo;<span class="flip-cta">Tap to flip</span></span>
-              <span class="flip-back"><span class="flip-tag">Reality</span>Proof-of-work (Bitcoin) does. Proof-of-stake chains don&rsquo;t mine at all &mdash; Ethereum cut its energy use by ~99.95% when it switched in 2022.</span>
+              <span class="flip-back"><span class="flip-tag">Reality</span><span class="flip-text">Proof-of-work (Bitcoin) does. Proof-of-stake chains don&rsquo;t mine at all &mdash; Ethereum cut its energy use by ~99.95% when it switched in 2022.</span></span>
             </span>
           </button>
           <button class="flip" type="button" aria-pressed="false">
             <span class="flip-inner">
               <span class="flip-front"><span class="flip-tag">Myth</span>&ldquo;Web3 is only about money and speculation.&rdquo;<span class="flip-cta">Tap to flip</span></span>
-              <span class="flip-back"><span class="flip-tag">Reality</span>Money is the loudest use, not the only one: portable usernames (ENS), community-run funds (DAOs), and proof that a document existed at a given time.</span>
+              <span class="flip-back"><span class="flip-tag">Reality</span><span class="flip-text">Money is the loudest use, not the only one: portable usernames (ENS), community-run funds (DAOs), and proof that a document existed at a given time.</span></span>
             </span>
           </button>
         </div>

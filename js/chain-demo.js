@@ -80,8 +80,9 @@
   function short(h) { return h.slice(0, 18) + "…" + h.slice(-6); }
 
   function fieldHTML(h) {
-    var zeros = h.match(/^0*/)[0];
-    return "<b>" + zeros + "</b>" + short(h).slice(zeros.length);
+    var s = short(h);
+    var zeros = s.match(/^0*/)[0];
+    return "<b>" + zeros + "</b>" + s.slice(zeros.length);
   }
 
   function render() {
