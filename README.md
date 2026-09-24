@@ -91,6 +91,12 @@ Most Web3 sites use dark backgrounds, neon gradients and glassmorphism. This one
 
 The page never asks for or stores keys, and it never sends a transaction.
 
+### Known limitation (and an honest note)
+
+While testing, we couldn't complete a full end-to-end wallet demo: the connection kept showing errors on our setup. The bigger blocker is that **creating a wallet is free, but funding it isn't possible without a bank**. Buying ETH means using an exchange with bank or card verification, and most "free" testnet faucets now require a small real-ETH balance first.
+
+So the page now shows a clearly highlighted note explaining this, plus a free five-step guide to creating a MetaMask wallet. The connect button remains for anyone who already has MetaMask. Suggestions are very welcome: please [open an issue](https://github.com/govindaramakrishna6-eng/WEB-3-/issues).
+
 ---
 
 ## Tech & project structure

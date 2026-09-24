@@ -379,6 +379,15 @@
         <p class="section-intro">In Web3 you don&rsquo;t sign up with an email and password. You connect a wallet, which holds a private key only you know. Connecting only shares your <b>public address</b> &mdash; it can&rsquo;t move your funds.</p>
       </header>
 
+      <aside class="honest-note reveal" aria-labelledby="honest-title">
+        <p class="note-tag">A humble note from us</p>
+        <h3 id="honest-title">Our live wallet demo didn&rsquo;t fully work &mdash; here&rsquo;s why.</h3>
+        <p>While testing, the wallet connection kept showing errors for us, so we couldn&rsquo;t finish a complete end-to-end demo. The bigger wall was this:</p>
+        <p class="honest-highlight"><b>Creating a wallet is free, but putting real crypto into it isn&rsquo;t possible without a bank.</b> Buying ETH means using an exchange that asks for a verified bank account or card, and most &ldquo;free&rdquo; test-coin faucets now ask you to already hold a little real ETH.</p>
+        <p>So instead of pretending, we&rsquo;ve added a free step-by-step guide to create your own MetaMask wallet. If you already have MetaMask, the connect button below may still work for you. We&rsquo;re learning, and we&rsquo;d be grateful for any suggestions on how to do this part better &mdash;
+          <a href="https://github.com/govindaramakrishna6-eng/WEB-3-/issues" target="_blank" rel="noopener">leave us a note on GitHub</a>.</p>
+      </aside>
+
       <div class="wallet reveal">
         <div class="wallet-card card" id="wallet-card">
           <div class="wallet-state" id="wallet-disconnected">
@@ -425,19 +434,20 @@
         </div>
 
         <div class="wallet-side">
-          <h3>What just happened?</h3>
+          <h3>Make your own wallet &mdash; free, in 5 steps</h3>
           <ol class="steps">
-            <li><b>The site asked</b> your wallet for permission to see your address.</li>
-            <li><b>You approved</b> in the wallet pop-up. The site never sees your private key.</li>
-            <li><b>The site read the blockchain</b> directly to show your balance &mdash; no account database needed.</li>
-            <li><b>Signing</b> a message proves ownership, like a digital autograph. It&rsquo;s free and doesn&rsquo;t send a transaction.</li>
+            <li><b>Install MetaMask</b> only from the official site, <a href="https://metamask.io/download/" target="_blank" rel="noopener">metamask.io/download</a> (browser extension or phone app). It costs nothing.</li>
+            <li><b>Choose &ldquo;Create a new wallet&rdquo;</b> and set a password. The password only unlocks the app on this device.</li>
+            <li><b>Write down your 12-word Secret Recovery Phrase</b> on paper. This <em>is</em> your wallet. Anyone with it owns your funds, and nobody can reset it for you.</li>
+            <li><b>Copy your public address</b> (it starts with <span class="mono">0x</span>). That one is safe to share &mdash; it&rsquo;s how people send you crypto.</li>
+            <li><b>Come back and connect.</b> Your wallet will be empty, and that&rsquo;s fine: connecting and signing a message are both free.</li>
           </ol>
           <div class="note-card safety">
             <p class="note-tag">Stay safe</p>
             <ul>
               <li>Never type your 12 or 24-word recovery phrase into any website. Ever.</li>
               <li>Read every pop-up. &ldquo;Sign&rdquo; and &ldquo;Send&rdquo; are very different buttons.</li>
-              <li>Practice on a <b>testnet</b> like Sepolia &mdash; its coins are free and worthless.</li>
+              <li>Practice on a <b>testnet</b> like Sepolia &mdash; its coins are worthless, though many faucets now ask for a small real-ETH balance first.</li>
             </ul>
           </div>
         </div>
